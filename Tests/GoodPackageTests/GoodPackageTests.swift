@@ -1,11 +1,14 @@
 import XCTest
+import SwiftUI
+import SnapshotTesting
 @testable import GoodPackage
+import UIKit
 
 final class GoodPackageTests: XCTestCase {
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(GoodPackage().text, "Hello, World!")
+        let text = Text("Hello World")
+            .foregroundColor(Color("brandPrimary"))
+            .fixedSize()
+        assertSnapshot(matching: text, as: .image)
     }
 }
